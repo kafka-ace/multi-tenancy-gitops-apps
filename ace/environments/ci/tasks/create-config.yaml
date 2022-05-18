@@ -146,8 +146,7 @@ spec:
 
         echo created configurations: ${configurations## } 
         echo -n ${configurations## } > $(results.configurations.path)
-      # workingDir: $(workspaces.workspace.path)
-      workingDir: $(workspaces.input.path)
+      workingDir: $(workspaces.workspace.path)
     - name: update-kustomization
       env:
         - name: DESTINATION_DIRECTORY
@@ -207,8 +206,7 @@ spec:
           value: $(params.user-home)
         - name: BRANCH_NAME
           value: $(params.branch_name)
-      # workingDir: $(workspaces.workspace.path)/$(params.repo-directory)
-      workingDir: $(workspaces.input.path)/$(params.repo-directory)
+      workingDir: $(workspaces.workspace.path)/$(params.repo-directory)
       image: bitnami/git
       script: |
         #!/usr/bin/env bash
@@ -221,11 +219,8 @@ spec:
         # Setting up the config for the git.
         git config --global user.email "${GIT_USER_EMAIL}"
         git config --global user.name "${GIT_USER_NAME}"
-
-        git config --global --add safe.directory $(workspaces.input.path)/$(params.repo-directory)
-
-
-        # git config --global --add safe.directory $(workspaces.workspace.path)/$(params.repo-directory)
+        
+        git config --global --add safe.directory $(workspaces.workspace.path)/$(params.repo-directory)
 
         if [[ $(git status -s | wc -l) -eq 0 ]]; then
           echo "No changes"
