@@ -26,7 +26,7 @@ resources:
 - secrets/gitops-repo-pk-secret-ace-config-at-github.yaml
 - secrets/gitops-repo-pk-secret-ace-infra-at-github.yaml
 - secrets/gitops-repo-pk-secret-multi-tenancy-gitops-apps-at-github.yaml
-
+- secrets/gitops-repo-pk-secret-create-customer-at-github.yaml
 # - secrets/ibm-ace-server-jks-secret.yaml
 # - secrets/ibm-ca-jks-secret.yaml
 # - secrets/ibm-client-jks-secret.yaml
